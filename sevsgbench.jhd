@@ -1,0 +1,3 @@
+MODULE sevsgbench
+SUBMODULE sevensegmentnew
+INSTANCE UUT

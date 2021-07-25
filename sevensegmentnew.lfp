@@ -1,0 +1,5 @@
+# begin LFP file E:\sevensegmentnew\sevensegmentnew.lfp
+designfile sevensegmentnew.v
+parttype xc3s200-4-ft256
+bus_delimiter 1;
+set_busdelim_onsave 1;

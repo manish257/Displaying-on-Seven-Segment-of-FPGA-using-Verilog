@@ -1,0 +1,20 @@
+xst -ise "C:/Labs/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -ifn sevensegmentnew.xst -ofn sevensegmentnew.syr
+xst -ise "C:/Labs/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -ifn sevensegmentnew.xst -ofn sevensegmentnew.syr
+xst -ise "C:/Labs/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -ifn sevensegmentnew.xst -ofn sevensegmentnew.syr
+ngdbuild -ise "C:/Labs/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -dd _ngo -nt timestamp -uc "sevensegmentnew.ucf" -p xc3s200-ft256-4 "sevensegmentnew.ngc" sevensegmentnew.ngd
+map -ise "C:/Labs/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -p xc3s200-ft256-4 -cm area -pr b -k 4 -c 100 -o sevensegmentnew_map.ncd sevensegmentnew.ngd sevensegmentnew.pcf
+par -ise "C:/Labs/sevensegmentnew/sevensegmentnew.ise" -w -intstyle ise -ol std -t 1 sevensegmentnew_map.ncd sevensegmentnew.ncd sevensegmentnew.pcf
+trce -ise "C:/Labs/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -e 3 -l 3 -s 4 -xml sevensegmentnew sevensegmentnew.ncd -o sevensegmentnew.twr sevensegmentnew.pcf -ucf sevensegmentnew.ucf
+bitgen -ise "C:/Labs/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -f sevensegmentnew.ut sevensegmentnew.ncd
+bitgen -ise "E:/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -f sevensegmentnew.ut sevensegmentnew.ncd
+xst -ise "E:/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -ifn sevensegmentnew.xst -ofn sevensegmentnew.syr
+ngdbuild -ise "E:/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -dd _ngo -nt timestamp -uc "sevensegmentnew.ucf" -p xc3s200-ft256-4 "sevensegmentnew.ngc" sevensegmentnew.ngd
+map -ise "E:/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -p xc3s200-ft256-4 -cm area -pr b -k 4 -c 100 -o sevensegmentnew_map.ncd sevensegmentnew.ngd sevensegmentnew.pcf
+par -ise "E:/sevensegmentnew/sevensegmentnew.ise" -w -intstyle ise -ol std -t 1 sevensegmentnew_map.ncd sevensegmentnew.ncd sevensegmentnew.pcf
+trce -ise "E:/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -e 3 -l 3 -s 4 -xml sevensegmentnew sevensegmentnew.ncd -o sevensegmentnew.twr sevensegmentnew.pcf -ucf sevensegmentnew.ucf
+bitgen -ise "E:/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -f sevensegmentnew.ut sevensegmentnew.ncd
+ngdbuild -ise "E:/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -dd _ngo -nt timestamp -uc "sevensegmentnew.ucf" -p xc3s200-ft256-4 "sevensegmentnew.ngc" sevensegmentnew.ngd
+map -ise "E:/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -p xc3s200-ft256-4 -cm area -pr b -k 4 -c 100 -o sevensegmentnew_map.ncd sevensegmentnew.ngd sevensegmentnew.pcf
+par -ise "E:/sevensegmentnew/sevensegmentnew.ise" -w -intstyle ise -ol std -t 1 sevensegmentnew_map.ncd sevensegmentnew.ncd sevensegmentnew.pcf
+trce -ise "E:/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -e 3 -l 3 -s 4 -xml sevensegmentnew sevensegmentnew.ncd -o sevensegmentnew.twr sevensegmentnew.pcf -ucf sevensegmentnew.ucf
+bitgen -ise "E:/sevensegmentnew/sevensegmentnew.ise" -intstyle ise -f sevensegmentnew.ut sevensegmentnew.ncd

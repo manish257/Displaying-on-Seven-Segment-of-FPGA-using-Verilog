@@ -1,0 +1,77 @@
+iMPACT Version: 
+iMPACT log file Started on Fri Oct 25 10:11:02 2019
+
+// *** BATCH CMD : setPreference -pref AutoSignature:FALSE
+// *** BATCH CMD : setPreference -pref KeepSVF:FALSE
+// *** BATCH CMD : setPreference -pref ConcurrentMode:FALSE
+// *** BATCH CMD : setPreference -pref UseHighz:FALSE
+// *** BATCH CMD : setPreference -pref svfUseTime:FALSE
+// *** BATCH CMD : loadProjectFile -file"E:/sevensegmentnew/sevensegmentnew.ipf"
+'1': Loading file 'e:/sevensegmentnew/sevensegmentnew.bit' ...
+done.
+INFO:iMPACT:1777 - 
+   Reading C:/Xilinx/spartan3/data/xc3s200.bsd...
+WARNING:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the   bitstream stored in memory,
+   but the original bitstream file remains unchanged.
+INFO:iMPACT:501 - '1': Added Device xc3s200 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+INFO:iMPACT:1777 - 
+   Reading C:/Xilinx/xcf/data/xcf02s.bsd...
+INFO:iMPACT:501 - '2': Added Device xcf02s successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+Active mode is BS
+// *** BATCH CMD : setMode -ss
+// *** BATCH CMD : setMode -sm
+// *** BATCH CMD : setMode -hw140
+// *** BATCH CMD : setMode -spi
+// *** BATCH CMD : setMode -acecf
+// *** BATCH CMD : setMode -acempm
+// *** BATCH CMD : setMode -pff
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : setMode -bs
+ Count ReleaseSemaphore rc = 298.
+GUI --- Auto connect to cable...
+// *** BATCH CMD : setCable -port auto
+AutoDetecting cable. Please wait.
+PROGRESS_START - Starting Operation.
+Connecting to cable (Parallel Port - LPT1).
+Checking cable driver.
+ Driver windrvr6.sys version = 7.0.0.0. LPT base address = 0378h.
+ ECP base address = 0778h.
+Cable connection established.
+PROGRESS_END - End Operation.
+Elapsed time =      1 sec.
+// *** BATCH CMD : Program -p 1 -defaultVersion 0 
+PROGRESS_START - Starting Operation.
+Chain TCK freq = 0.
+Validating chain...
+Boundary-scan chain validated successfully.
+'1':Programming  device...
+done.
+'1': Reading status register contents...
+CRC error                                         :         0
+RESERVED                                          :         0
+DCM locked                                        :         1
+DCI Matched                                       :         1
+legacy input error                                :         0
+status of GTS_CFG_B                               :         1
+status of GWE                                     :         1
+status of GHIGH                                   :         1
+value of MODE pin M0                              :         1
+value of MODE pin M1                              :         1
+value of MODE pin M2                              :         1
+value of CFG_RDY (INIT_B)                         :         1
+DONEIN input from DONE pin                        :         1
+ID_ERROR                                          :         0
+RESERVED                                          :         0
+RESERVED                                          :         0
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 0111 1111 1000 0000 0000 0000 0000 
+INFO:iMPACT:579 - '1': Completed downloading bit file to device.
+INFO:iMPACT:580 - '1':Checking done pin ....done.
+'1': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      6 sec.

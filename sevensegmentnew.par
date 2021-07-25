@@ -1,0 +1,185 @@
+Release 8.2i par I.31
+Copyright (c) 1995-2006 Xilinx, Inc.  All rights reserved.
+
+UET-F7C36C12F54::  Fri Oct 25 10:10:31 2019
+
+par -w -intstyle ise -ol std -t 1 sevensegmentnew_map.ncd sevensegmentnew.ncd
+sevensegmentnew.pcf 
+
+
+Constraints file: sevensegmentnew.pcf.
+Loading device for application Rf_Device from file '3s200.nph' in environment C:\Xilinx.
+   "sevensegmentnew" is an NCD, version 3.1, device xc3s200, package ft256, speed -4
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
+
+INFO:Par:282 - No user timing constraints were detected or you have set the option to ignore timing constraints ("par
+   -x"). Place and Route will run in "Performance Evaluation Mode" to automatically improve the performance of all
+   internal clocks in this design. The PAR timing summary will list the performance achieved for each clock. Note: For
+   the fastest runtime, set the effort level to "std".  For best performance, set the effort level to "high". For a
+   balance between the fastest runtime and best performance, set the effort level to "med".
+
+Device speed data version:  "PRODUCTION 1.38 2006-05-03".
+
+
+Device Utilization Summary:
+
+   Number of External IOBs            18 out of 173    10%
+      Number of LOCed IOBs            18 out of 18    100%
+
+   Number of Slices                   16 out of 1920    1%
+      Number of SLICEMs                0 out of 960     0%
+
+
+
+Overall effort level (-ol):   Standard 
+Placer effort level (-pl):    High 
+Placer cost table entry (-t): 1
+Router effort level (-rl):    Standard 
+
+
+Starting Placer
+
+Phase 1.1
+Phase 1.1 (Checksum:9896c3) REAL time: 2 secs 
+
+Phase 2.31
+Phase 2.31 (Checksum:1312cfe) REAL time: 2 secs 
+
+Phase 3.2
+
+
+Phase 3.2 (Checksum:1c9c37d) REAL time: 2 secs 
+
+Phase 4.8
+.
+.
+.
+.
+Phase 4.8 (Checksum:98df9f) REAL time: 4 secs 
+
+Phase 5.5
+Phase 5.5 (Checksum:2faf07b) REAL time: 4 secs 
+
+Phase 6.18
+Phase 6.18 (Checksum:39386fa) REAL time: 4 secs 
+
+Phase 7.5
+Phase 7.5 (Checksum:42c1d79) REAL time: 4 secs 
+
+Writing design to file sevensegmentnew.ncd
+
+
+Total REAL time to Placer completion: 4 secs 
+Total CPU time to Placer completion: 3 secs 
+
+Starting Router
+
+Phase 1: 105 unrouted;       REAL time: 4 secs 
+
+Phase 2: 105 unrouted;       REAL time: 4 secs 
+
+Phase 3: 27 unrouted;       REAL time: 4 secs 
+
+Phase 4: 27 unrouted; (0)      REAL time: 4 secs 
+
+Phase 5: 27 unrouted; (0)      REAL time: 4 secs 
+
+Phase 6: 0 unrouted; (0)      REAL time: 4 secs 
+
+Phase 7: 0 unrouted; (0)      REAL time: 4 secs 
+
+WARNING:Route:447 - CLK Net:w1 may have excessive skew because 
+   4 CLK pins failed to route using a CLK template.
+WARNING:Route:447 - CLK Net:w0 may have excessive skew because 
+   4 CLK pins failed to route using a CLK template.
+WARNING:Route:447 - CLK Net:w3 may have excessive skew because 
+   2 CLK pins failed to route using a CLK template.
+WARNING:Route:447 - CLK Net:w2 may have excessive skew because 
+   2 CLK pins failed to route using a CLK template.
+
+Total REAL time to Router completion: 4 secs 
+Total CPU time to Router completion: 4 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|                  w1 |         Local|      |    4 |  0.343     |  1.464      |
++---------------------+--------------+------+------+------------+-------------+
+|                  w0 |         Local|      |    4 |  1.036     |  1.810      |
++---------------------+--------------+------+------+------------+-------------+
+|                  w3 |         Local|      |    2 |  0.342     |  1.831      |
++---------------------+--------------+------+------+------------+-------------+
+|                  w2 |         Local|      |    2 |  0.064     |  1.584      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+
+   The Delay Summary Report
+
+
+The NUMBER OF SIGNALS NOT COMPLETELY ROUTED for this design is: 0
+
+   The AVERAGE CONNECTION DELAY for this design is:        0.961
+   The MAXIMUM PIN DELAY IS:                               2.704
+   The AVERAGE CONNECTION DELAY on the 10 WORST NETS is:   1.722
+
+   Listing Pin Delays by value: (nsec)
+
+    d < 1.00   < d < 2.00  < d < 3.00  < d < 4.00  < d < 5.00  d >= 5.00
+   ---------   ---------   ---------   ---------   ---------   ---------
+          62          40           3           0           0           0
+
+Timing Score: 0
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+------------------------------------------------------------------------------------------------------
+  Constraint                                | Requested  | Actual     | Logic  | Absolute   |Number of
+                                            |            |            | Levels | Slack      |errors   
+------------------------------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 6 secs 
+Total CPU time to PAR completion: 5 secs 
+
+Peak Memory Usage:  129 MB
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 4
+Number of info messages: 1
+
+Writing design to file sevensegmentnew.ncd
+
+
+
+PAR done!

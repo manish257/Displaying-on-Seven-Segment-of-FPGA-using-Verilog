@@ -1,0 +1,137 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 8.2i
+//  \   \         Application : ISE
+//  /   /         Filename : sevsgbench.tfw
+// /___/   /\     Timestamp : Fri Oct 25 09:15:32 2019
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: sevsgbench
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module sevsgbench;
+    wire [6:0] f;
+    wire [3:0] sw;
+    reg sel0 = 1'b0;
+    reg sel1 = 1'b0;
+    reg WE = 1'b1;
+    reg x0 = 1'b0;
+    reg x1 = 1'b0;
+    reg x2 = 1'b0;
+    reg x3 = 1'b0;
+
+
+    sevensegmentnew UUT (
+        .f(f),
+        .sw(sw),
+        .sel0(sel0),
+        .sel1(sel1),
+        .WE(WE),
+        .x0(x0),
+        .x1(x1),
+        .x2(x2),
+        .x3(x3));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin  // Open the results file...
+        TX_FILE = $fopen("results.txt");
+        #1000 // Final time:  1000 ns
+        if (TX_ERROR == 0) begin
+            $display("No errors or warnings.");
+            $fdisplay(TX_FILE, "No errors or warnings.");
+        end else begin
+            $display("%d errors found in simulation.", TX_ERROR);
+            $fdisplay(TX_FILE, "%d errors found in simulation.", TX_ERROR);
+        end
+        $fclose(TX_FILE);
+        $stop;
+    end
+
+    initial begin
+        // -------------  Current Time:  200ns
+        #200;
+        sel1 = 1'b1;
+        x0 = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  250ns
+        #50;
+        CHECK_f(7'b0000000);
+        CHECK_sw(4'b1101);
+        // -------------------------------------
+        // -------------  Current Time:  300ns
+        #50;
+        sel1 = 1'b0;
+        x0 = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  350ns
+        #50;
+        CHECK_f(7'b1000000);
+        CHECK_sw(4'b1110);
+        // -------------------------------------
+        // -------------  Current Time:  400ns
+        #50;
+        sel0 = 1'b0;
+        WE = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  500ns
+        #100;
+        x2 = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  600ns
+        #100;
+        sel0 = 1'b0;
+        sel1 = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  650ns
+        #50;
+        CHECK_f(7'b0000000);
+        CHECK_sw(4'b1101);
+        // -------------------------------------
+        // -------------  Current Time:  700ns
+        #50;
+        sel1 = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  750ns
+        #50;
+        CHECK_f(7'b1000000);
+        CHECK_sw(4'b1110);
+    end
+
+    task CHECK_f;
+        input [6:0] NEXT_f;
+
+        #0 begin
+            if (NEXT_f !== f) begin
+                $display("Error at time=%dns f=%b, expected=%b", $time, f, NEXT_f);
+                $fdisplay(TX_FILE, "Error at time=%dns f=%b, expected=%b", $time, f, NEXT_f);
+                $fflush(TX_FILE);
+                TX_ERROR = TX_ERROR + 1;
+            end
+        end
+    endtask
+    task CHECK_sw;
+        input [3:0] NEXT_sw;
+
+        #0 begin
+            if (NEXT_sw !== sw) begin
+                $display("Error at time=%dns sw=%b, expected=%b", $time, sw, NEXT_sw);
+                $fdisplay(TX_FILE, "Error at time=%dns sw=%b, expected=%b", $time, sw, NEXT_sw);
+                $fflush(TX_FILE);
+                TX_ERROR = TX_ERROR + 1;
+            end
+        end
+    endtask
+
+endmodule
+

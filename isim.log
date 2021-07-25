@@ -1,0 +1,23 @@
+ command line:
+   C:\Labs\sevensegmentnew\sevsgbench_tbxr.exe
+     -intstyle  ise
+     -tclbatch  genExpectedResults.cmd
+
+Fri Oct 25 09:15:14 2019
+
+Total Line Count = 123
+
+ Elaboration time 0 sec.
+
+ Estimate current memory usage 70.7338 Meg. 
+
+ Total signals 31
+ Total nets 50
+ Total signal drivers 45
+ Total blocks 5
+ Total primitive blocks 4
+ Total processes 50
+isim batch on 
+run all 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.

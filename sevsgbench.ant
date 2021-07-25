@@ -1,0 +1,116 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 8.2i
+//  \   \         Application : ISE
+//  /   /         Filename : sevsgbench.ant
+// /___/   /\     Timestamp : Fri Oct 25 09:15:33 2019
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: sevsgbench
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module sevsgbench;
+    wire [6:0] f;
+    wire [3:0] sw;
+    reg sel0 = 1'b0;
+    reg sel1 = 1'b0;
+    reg WE = 1'b1;
+    reg x0 = 1'b0;
+    reg x1 = 1'b0;
+    reg x2 = 1'b0;
+    reg x3 = 1'b0;
+
+
+    sevensegmentnew UUT (
+        .f(f),
+        .sw(sw),
+        .sel0(sel0),
+        .sel1(sel1),
+        .WE(WE),
+        .x0(x0),
+        .x1(x1),
+        .x2(x2),
+        .x3(x3));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process
+        #0;
+        ANNOTATE_f;
+        ANNOTATE_sw;
+        forever begin
+            #50;
+            ANNOTATE_f;
+            ANNOTATE_sw;
+            #50;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Labs\\sevensegmentnew\\sevsgbench.ano");
+        #1000 // Final time:  1000 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  200ns
+        #200;
+        sel1 = 1'b1;
+        x0 = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  300ns
+        #100;
+        sel1 = 1'b0;
+        x0 = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  400ns
+        #100;
+        sel0 = 1'b0;
+        WE = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  500ns
+        #100;
+        x2 = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  600ns
+        #100;
+        sel0 = 1'b0;
+        sel1 = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  700ns
+        #100;
+        sel1 = 1'b0;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_f;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,f,%b]", $time, f);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_sw;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,sw,%b]", $time, sw);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+
